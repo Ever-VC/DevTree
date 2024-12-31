@@ -1,0 +1,22 @@
+{
+  "name": "devtree",
+  "version": "1.0.0",
+  "description": "Proyecto DevTree con Express y TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ever-VC/DevTree.git"
+  },
+  "author": "Ever-VC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ever-VC/DevTree/issues"
+  },
+  "homepage": "https://github.com/Ever-VC/DevTree#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
