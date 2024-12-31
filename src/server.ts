@@ -1,11 +1,9 @@
 //const express = require('express'); // CommonJS CJS
 import express from 'express'; // ES6 Module ESM (ECMAScript Module)
+import router from './router';
 
 const app = express();
 
-// Routing
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+app.use('/', router);
 
 export default app;
