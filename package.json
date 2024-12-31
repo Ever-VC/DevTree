@@ -1,5 +1,6 @@
 {
   "name": "devtree",
+  "type": "module",
   "version": "1.0.0",
   "description": "Proyecto DevTree con Express y TypeScript",
   "main": "index.js",

@@ -1,4 +1,5 @@
-const express = require('express');
+//const express = require('express'); // CommonJS CJS
+import express from 'express'; // ES6 Module ESM (ECMAScript Module)
 
 const app = express();
 
