@@ -1,13 +1,21 @@
 import mongoose, { mongo } from "mongoose";
 
 export interface IUser {
-    name: String;
-    email: String;
-    password: String;
+    handle: string;
+    name: string;
+    email: string;
+    password: string;
 };
 
 // Esquema de usuario para la base de datos
 const userSchema = new mongoose.Schema({
+    handle: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true,
+        unique: true
+    },
     name: {
         type: String,
         required: true,
@@ -17,7 +25,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true
+        unique: true,
+        lowercase: true
     },
     password: {
         type: String,
