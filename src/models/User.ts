@@ -1,5 +1,11 @@
 import mongoose, { mongo } from "mongoose";
 
+export interface IUser {
+    name: String;
+    email: String;
+    password: String;
+};
+
 // Esquema de usuario para la base de datos
 const userSchema = new mongoose.Schema({
     name: {
@@ -21,5 +27,5 @@ const userSchema = new mongoose.Schema({
 });
 
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model<IUser>('User', userSchema);
 export default User;
