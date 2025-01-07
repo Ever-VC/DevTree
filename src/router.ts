@@ -1,15 +1,9 @@
 import { Router } from "express";
-import User from "./models/User";
+import { createAcount } from "./handlers";
 
 const router = Router();
 
 // Autenticación y registro
-router.post('/auth/register', async(req, res) => {
-    const user = new User(req.body);
-
-    await user.save();
-
-    res.send('Registro creado correctamente');
-});
+router.post('/auth/register', createAcount);
 
 export default router;
