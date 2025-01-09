@@ -1,17 +1,10 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import slug from "slug";
 import User from "../models/User";
 import { checkPassword, hashPassword } from "../utils/auth";
 
 export const createAcount = async(req: Request, res: Response) => {
-
-    // Manejar errores de validación
-    let errors = validationResult(req);
-    if(!errors.isEmpty()) {
-        return res.status(400).json({errors: errors.array()});
-    }
-
     const {email, password} = req.body;
 
     const userExists = await User.findOne({email});
@@ -38,12 +31,6 @@ export const createAcount = async(req: Request, res: Response) => {
 }
 
 export const login = async(req: Request, res: Response) => {
-    // Manejar errores de validación
-    let errors = validationResult(req);
-    if(!errors.isEmpty()) {
-        return res.status(400).json({errors: errors.array()});
-    }
-
     // Buscar usuario en la base de datos
     const {email, password} = req.body;
 
