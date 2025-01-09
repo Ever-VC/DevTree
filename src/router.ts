@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { createAcount } from "./handlers";
+import { createAcount, login } from "./handlers";
 
 const router = Router();
 
@@ -14,11 +14,21 @@ router.post('/auth/register',
         .withMessage('El nombre de usuario es requerido.'),
     body('email')
         .isEmail()
-        .withMessage('El email no es álido.'),
+        .withMessage('E-mail no valido.'),
     body('password')
         .isLength({min: 8})
-        .withMessage('El password no es valido, debe contener como minimo {8} caracteres.'),
+        .withMessage('El password no es valido, debe contener como minimo 8 caracteres.'),
     createAcount
+);
+
+router.post('/auth/login',
+    body('email')
+        .isEmail()
+        .withMessage('E-mail no valido.'),
+    body('password')
+        .notEmpty()
+        .withMessage('El password es obligatorio.'),
+    login
 );
 
 export default router;
